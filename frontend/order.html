@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cart</title>
+        <link rel="stylesheet" href="css/order.css">
+        <link rel="stylesheet" href="css/header.css">
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="order-container">
+            <h2 id="order-number">Order 123</h2>
+
+            <template id="order-item-card-template">
+                <div id="order-item-card">
+                    <img class="order-item-img" src="https://picsum.photos/100" alt="Order Item Image">
+                    <div class="order-item-middle">
+                        <h2 class="order-item-name">Lorem Ipsum</h2>
+                        <p class="order-item-desc">Lorem ipsum</p>
+                    </div>
+                    <div class="order-item-right">
+                        <p class="order-item-price">$99.99</p>
+                    </div>
+                </div>
+            </template>
+            <div id="order-items-container">
+                <div class="order-item-card">
+                    <img class="order-item-img" src="https://picsum.photos/200" alt="Order Item Image">
+                    <div class="order-item-middle">
+                        <p class="order-item-name">Lorem Ipsum</p>
+                        <p class="order-item-desc">Lorem ipsum</p>
+                    </div>
+                    <div class="order-item-right">
+                        <p class="order-item-price">$99.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/header.js"></script>
+    </body>
+</html>

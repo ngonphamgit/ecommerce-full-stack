@@ -1,0 +1,42 @@
+body {
+    font-family: Calibri, Arial, sans-serif;
+}
+
+#order-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top: 16px;
+    width: 50%;
+}
+
+#order-number {
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.order-item-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.order-item-middle {
+    margin-left: 12px;
+}
+
+.order-item-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.order-item-desc {
+    font-size: 18px;
+
+}
+
+.order-item-right {
+    margin-left: auto;
+    margin-right: 32px;
+}
