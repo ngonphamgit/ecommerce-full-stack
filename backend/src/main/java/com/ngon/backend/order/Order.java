@@ -19,7 +19,7 @@ public class Order
     @JoinColumn(name = "user_id")
     private User user;
     private LocalDateTime orderTime;
-    private BigDecimal total;
+    private BigDecimal total = BigDecimal.ZERO;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)

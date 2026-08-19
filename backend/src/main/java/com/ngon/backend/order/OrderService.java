@@ -47,6 +47,21 @@ public class OrderService
     }
 
     @Transactional
+    public OrderResponse getOrderByOrderId(Authentication auth, Long id)
+    {
+        User user = userRepo.findByUsername(auth.getName());
+        Order order = orderRepo.findById(id)
+                .orElseThrow(() -> new OrderNotFoundException("Order not found"));
+        
+        if (order.getUser().getId() != user.getId())
+        {
+            throw new IllegalOrderRequestException("Unauthorized order request");
+        }
+
+        return responseMapper.toOrderResponse(order);
+    }
+
+    @Transactional
     public OrderResponse addItemToCart(AddOrderItemRequest request, Authentication auth)
     {
         User user = userRepo.findByUsername(auth.getName());

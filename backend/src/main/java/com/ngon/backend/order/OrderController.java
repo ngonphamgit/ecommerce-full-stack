@@ -23,6 +23,13 @@ public class OrderController
     }
 
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @GetMapping("/order")
+    public OrderResponse getOrderById(Authentication auth, @RequestParam Long id)
+    {
+        return orderService.getOrderByOrderId(auth, id);
+    }
+
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @PostMapping("/addItem")
     public OrderResponse addItemToCart(@RequestBody AddOrderItemRequest request, Authentication auth)
     {
