@@ -47,6 +47,10 @@ body {
     font-size: 18px;
 }
 
+.order-item-quantity {
+    font-size: 18px;
+}
+
 .order-item-right {
     margin-left: auto;
     margin-right: 12px;

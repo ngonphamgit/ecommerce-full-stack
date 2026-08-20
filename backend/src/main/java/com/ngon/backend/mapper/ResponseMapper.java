@@ -67,6 +67,7 @@ public class ResponseMapper {
             orderItem.getId(),
             orderItem.getProduct().getId(),
             orderItem.getProduct().getName(),
+            orderItem.getProduct().getDescription(),
             orderItem.getQuantity(),
             orderItem.getUnitPrice()
         );

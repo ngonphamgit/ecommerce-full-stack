@@ -19,6 +19,7 @@
                     </div>
                     <div class="order-item-right">
                         <p class="order-item-price">$0.00</p>
+                        <p class="order-item-quantity">Quantity: 0</p>
                     </div>
                 </div>
             </template>
@@ -27,7 +28,17 @@
             </div>
         </div>
 
+        <script src="js/orderPage.js"></script>
         <script src="js/header.js"></script>
-        <script src="js/order.js"></script>
+        <script>
+            window.addEventListener("DOMContentLoaded", async () => {
+                const jwt = localStorage.getItem("jwt");
+
+                const params = new URLSearchParams(window.location.search);
+                orderId = params.get("id") || "";
+
+                loadUserOrder(jwt, orderId);
+            })
+        </script>
     </body>
 </html>
