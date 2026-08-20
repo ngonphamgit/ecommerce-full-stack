@@ -33,6 +33,7 @@ function displayUserOrders(userOrders)
     {
         const newCard = orderCardTemplate.content.cloneNode(true);
 
+        newCard.querySelector(".order-link").href = `order.html?id=${order.orderId}`
         newCard.querySelector(".order-number").textContent = "Order #" + order.orderId;
         newCard.querySelector(".order-status").textContent = "Status: " + order.status;
         newCard.querySelector(".order-items").textContent = "Items: " + order.orderItems.length;

@@ -16,16 +16,18 @@
             <div id="user-orders">
                 <h2 class="profile-title">Orders</h2>
                 <template id="order-card-template">
-                    <div class="order-card">
-                        <div class="order-card-top">
-                            <p class="order-number">Order #</p>
-                            <p class="order-status">Status: <span class="span-status">None</span></p>
+                    <a class="order-link" href="order.html">
+                        <div class="order-card">
+                            <div class="order-card-top">
+                                <p class="order-number">Order #</p>
+                                <p class="order-status">Status: <span class="span-status">None</span></p>
+                            </div>
+                            <div class="order-card-bottom">
+                                <p class="order-items">Items: 0</p>
+                                <p class="order-total">$0.00</p>
+                            </div>
                         </div>
-                        <div class="order-card-bottom">
-                            <p class="order-items">Items: 0</p>
-                            <p class="order-total">$0.00</p>
-                        </div>
-                    </div>
+                    </a>
                 </template>
                 <div id="orders-container">
                     
