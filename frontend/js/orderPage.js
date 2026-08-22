@@ -25,10 +25,12 @@ async function getUserOrder(jwt, orderId)
 function displayOrderDetails(data)
 {
     orderNumber.textContent = "Order " + data.orderId;
+    console.log(data)
     for (const orderItem of data.orderItems)
     {
         const newCard = orderItemCardTemplate.content.cloneNode(true);
 
+        newCard.querySelector(".order-item-link").href = `productPage.html?id=${orderItem.productId}`
         newCard.querySelector(".order-item-name").textContent = orderItem.name;
         newCard.querySelector(".order-item-desc").textContent = orderItem.desc;
         newCard.querySelector(".order-item-price").textContent = "$" + orderItem.unitPrice;

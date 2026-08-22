@@ -23,6 +23,11 @@ body {
     margin-bottom: 12px;
 }
 
+.order-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .order-item-middle {
     margin-left: 12px;
 }

@@ -44,6 +44,11 @@ body {
     margin-bottom: 8px;
 }
 
+.order-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .order-card-top,
 .order-card-bottom {
     display: flex;
