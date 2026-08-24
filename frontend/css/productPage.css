@@ -30,6 +30,15 @@
     margin: 0 auto;
     gap: 8px;
     width: 75%;
-    height: 10%;
     border: 1px solid rgb(233, 233, 233);
+}
+
+#quantity-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#quantity-input {
+    max-width: 50%;
 }
