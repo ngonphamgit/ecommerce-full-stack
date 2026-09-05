@@ -55,21 +55,29 @@ public class FavoriteService {
     }
 
     @Transactional
-    public List<FavoriteResponse> removeFavorite(Long favoriteId, Authentication auth)
+    public List<FavoriteResponse> removeFavorite(Long productId, Authentication auth)
     {
         User user = userRepo.findByUsername(auth.getName());
 
-        Favorite favorite = favoriteRepo.findById(favoriteId)
+        Favorite favorite = favoriteRepo.findByUserIdAndProductId(user.getId(), productId)
                 .orElseThrow(() -> new FavoriteNotFound("Favorite not found"));
 
         //favorite exists but user doesn't own it (can't delete someone else's favorite)
         if (favorite.getUser().getId() != user.getId())
         {
-            throw new FavoriteNotFound("Favorite not found");
+            throw new FavoriteNotFound("Not owner of favorite");
         }
 
         favoriteRepo.delete(favorite);
         return favoriteRepo.findAllByUserId(user.getId()).stream().map(responseMapper::toFavoriteResponse).toList();
+    }
+
+    @Transactional
+    public boolean favoriteExistsByProductId(Long productId, Authentication auth)
+    {
+        User user = userRepo.findByUsername(auth.getName());
+
+        return favoriteRepo.existsByUserIdAndProductId(user.getId(), productId);
     }
 
     public List<Favorite> getUserFavorites(User user)

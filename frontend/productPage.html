@@ -26,7 +26,7 @@
                         <input type="number" id="quantity-input" min="1" step="1" value="1">
                     </div>
                     <button id="add-to-cart-button">Add to Cart</button>
-                    <button id="add-to-favs-button">Add to Favorites</button>
+                    <button id="favorite-button">Add to Favorites</button>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                 id = params.get("id") || "";
 
                 const data = await fetchProduct(id);
-                displayProduct(data);
+                await displayProduct(data);
             })
         </script>
     </body>

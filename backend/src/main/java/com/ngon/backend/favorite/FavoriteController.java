@@ -30,9 +30,16 @@ public class FavoriteController {
     }
 
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-    @PostMapping("remove")
-    public List<FavoriteResponse> removeFavorite(@RequestParam Long favoriteId, Authentication auth)
+    @PostMapping("/remove")
+    public List<FavoriteResponse> removeFavorite(@RequestParam Long productId, Authentication auth)
     {
-        return favoriteService.removeFavorite(favoriteId, auth);
+        return favoriteService.removeFavorite(productId, auth);
+    }
+
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @GetMapping("/check")
+    public boolean favoriteExistsByProductId(@RequestParam Long productId, Authentication auth)
+    {
+        return favoriteService.favoriteExistsByProductId(productId, auth);
     }
 }

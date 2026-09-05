@@ -6,6 +6,7 @@ const stockText = document.getElementById("stock-text");
 
 const quantityInput = document.getElementById("quantity-input");
 const addToCartButton = document.getElementById("add-to-cart-button");
+const favoriteButton = document.getElementById("favorite-button");
 
 let productId;
 
@@ -50,7 +51,66 @@ async function addProductToCart(jwt, quantity)
     window.location.href = `order.html?id=${fetchData.orderId}`;
 }
 
-function displayProduct(product)
+async function addFavorite(jwt)
+{
+    const response = await fetch(`http://localhost:8080/favorites/add?productId=${productId}`, {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json",
+            "Authorization" : `Bearer ${jwt}`
+        }
+    });
+
+    if (!response.ok)
+    {
+        console.log("bad add favorite");
+        return;
+    }
+
+    window.location.reload();
+}
+
+async function removeFavorite(jwt)
+{
+    const response = await fetch(`http://localhost:8080/favorites/remove?productId=${productId}`, {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json",
+            "Authorization" : `Bearer ${jwt}`
+        }
+    });
+
+    if (!response.ok)
+    {
+        console.log("bad remove favorite");
+        return;
+    }
+
+    window.location.reload();
+}
+
+async function checkFavoriteExists(jwt)
+{
+    const response = await fetch(`http://localhost:8080/favorites/check?productId=${productId}`, {
+        method : "GET",
+        headers : {
+            "Content-Type" : "application/json",
+            "Authorization" : `Bearer ${jwt}`
+        },
+    });
+
+    if (!response.ok)
+    {
+        console.log("bad check favorite exists");
+        return;
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data;
+}
+
+async function displayProduct(product)
 {
     productId = product.id;
     productImage.src = "https://picsum.photos/300";
@@ -58,6 +118,21 @@ function displayProduct(product)
     productPrice.textContent = "$" + product.price;
     productDesc.textContent = product.description;
     stockText.textContent = "Current stock: " + product.quantity;
+
+    const jwt = localStorage.getItem("jwt");
+
+    if (jwt === "") {return;}
+
+    if (await checkFavoriteExists(jwt) === true)
+    {
+        console.log("has favorite");
+        favoriteButton.textContent = "Remove from Favorites";
+    }
+    else
+    {
+        console.log("does not have favorite");
+        favoriteButton.textContent = "Add to Favorites";
+    }
 }
 
 addToCartButton.addEventListener("click", async () => {
@@ -76,4 +151,22 @@ addToCartButton.addEventListener("click", async () => {
     }
 
     await addProductToCart(jwt, quantity);
+});
+
+favoriteButton.addEventListener("click", async () => {
+    const jwt = localStorage.getItem("jwt");
+
+    if (jwt === "")
+    {
+        window.location.href = "login.html";
+    }
+
+    if (await checkFavoriteExists(jwt) === true)
+    {
+        await removeFavorite(jwt);
+    }
+    else
+    {
+        await addFavorite(jwt);
+    }
 })
