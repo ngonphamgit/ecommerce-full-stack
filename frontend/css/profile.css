@@ -92,7 +92,7 @@ body {
 }
 
 .favorite-image {
-    width: 35%;
+    aspect-ratio: 1;
 }
 
 .favorite-info {
@@ -123,4 +123,9 @@ body {
 
     margin-bottom: 0px;
     margin-top: 3px;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
 }

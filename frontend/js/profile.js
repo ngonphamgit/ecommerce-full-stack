@@ -50,6 +50,7 @@ function displayUserFavorites(userFavorites)
         const product = favorite.product;
         const newCard = favoriteCardTemplate.content.cloneNode(true);
 
+        newCard.querySelector(".product-link").href = `productPage.html?id=${product.id}`;
         newCard.querySelector(".favorite-name").textContent = product.name;
         newCard.querySelector(".favorite-price").textContent = "$ " + product.price;
         newCard.querySelector(".favorite-desc").textContent = product.description;

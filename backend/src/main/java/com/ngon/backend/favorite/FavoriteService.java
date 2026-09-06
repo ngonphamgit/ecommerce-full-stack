@@ -63,7 +63,7 @@ public class FavoriteService {
                 .orElseThrow(() -> new FavoriteNotFound("Favorite not found"));
 
         //favorite exists but user doesn't own it (can't delete someone else's favorite)
-        if (favorite.getUser().getId() != user.getId())
+        if (!favorite.getUser().getId().equals(user.getId()))
         {
             throw new FavoriteNotFound("Not owner of favorite");
         }

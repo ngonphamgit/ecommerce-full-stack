@@ -31,25 +31,27 @@ async function initialize()
 
     if (localStorage.getItem("jwt") === "") //if user is not logged in, hide user profile buttons
     {
+        console.log("signed out")
         profileButtons.classList.toggle("hidden");
     }
     else
     {
+        console.log("logged in")
         authButtons.classList.toggle("hidden");
+
+        logoutButton.addEventListener("click", () => {
+        localStorage.setItem("jwt", "");
+        window.location.href = "index.html";
+        })
+
+        cartButton.dataset.orderId = await getUserCartId(jwt);
+        cartButton.addEventListener("click", () => {
+            window.location.href = `order.html?id=${cartButton.dataset.orderId}`;
+        })
     }
 
     homeButton.addEventListener("click", () => {
         window.location.href = "index.html";
-    })
-
-    logoutButton.addEventListener("click", () => {
-        localStorage.setItem("jwt", "");
-        window.location.href = "index.html";
-    })
-
-    cartButton.dataset.orderId = await getUserCartId(jwt);
-    cartButton.addEventListener("click", () => {
-        window.location.href = `order.html?id=${cartButton.dataset.orderId}`;
     })
 }
 
