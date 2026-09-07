@@ -2,13 +2,18 @@ body {
     font-family: Calibri, Arial, sans-serif;
 }
 
+#page-container {
+    display: flex;
+    flex-direction: row;
+}
+
 #order-container {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
     margin: 0 auto;
     margin-top: 16px;
-    width: 50%;
+    width: 40%;
 }
 
 #order-number {
@@ -59,4 +64,30 @@ body {
 .order-item-right {
     margin-left: auto;
     margin-right: 12px;
+}
+
+#checkout-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border: solid 1px black;
+    margin-top: 16px;
+    left: calc(70% + 10px);
+    width: 200px;
+}
+
+#checkout-container[hidden] {
+    display: none;
+}
+
+#cart-total {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 12px;
+}
+
+#checkout-button {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 16px;
 }
