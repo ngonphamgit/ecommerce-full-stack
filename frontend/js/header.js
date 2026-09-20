@@ -6,7 +6,7 @@ let cartButton;
 
 async function getUserCartId(jwt)
 {
-    const response = await fetch(`http://localhost:8080/orders/cart`, {
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/orders/cart`, {
         method : "GET",
         headers : {
             "Content-Type" : "application/json",

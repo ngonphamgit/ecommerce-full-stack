@@ -9,7 +9,7 @@ const favoriteCardTemplate = document.getElementById("favorite-card-template");
 
 async function getUserProfile(jwt)
 {
-    const response =  await fetch(`http://localhost:8080/users/me`, {
+    const response =  await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/users/me`, {
         method : "GET",
         headers : {
             "Content-Type" : "application/json",

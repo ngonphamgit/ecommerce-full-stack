@@ -12,7 +12,7 @@ registerButton.addEventListener("click", async () => {
         "password" : passwordInput.value
     };
 
-    const response = await fetch(`http://localhost:8080/auth/register`, {
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/auth/register`, {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"

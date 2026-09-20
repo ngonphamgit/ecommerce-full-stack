@@ -17,7 +17,7 @@ async function addProductToCart(jwt, quantity)
         "quantity" : quantity
     }
 
-    const fetchResponse = await fetch(`http://localhost:8080/orders/cart`, {
+    const fetchResponse = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/orders/cart`, {
         method : "GET",
         headers : {
             "Content-Type" : "application/json",
@@ -33,7 +33,7 @@ async function addProductToCart(jwt, quantity)
 
     const fetchData = await fetchResponse.json();
 
-    const addResponse = await fetch(`http://localhost:8080/orders/addItem`, {
+    const addResponse = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/orders/addItem`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json",
@@ -53,7 +53,7 @@ async function addProductToCart(jwt, quantity)
 
 async function addFavorite(jwt)
 {
-    const response = await fetch(`http://localhost:8080/favorites/add?productId=${productId}`, {
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/favorites/add?productId=${productId}`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json",
@@ -72,7 +72,7 @@ async function addFavorite(jwt)
 
 async function removeFavorite(jwt)
 {
-    const response = await fetch(`http://localhost:8080/favorites/remove?productId=${productId}`, {
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/favorites/remove?productId=${productId}`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json",
@@ -91,7 +91,7 @@ async function removeFavorite(jwt)
 
 async function checkFavoriteExists(jwt)
 {
-    const response = await fetch(`http://localhost:8080/favorites/check?productId=${productId}`, {
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/favorites/check?productId=${productId}`, {
         method : "GET",
         headers : {
             "Content-Type" : "application/json",

@@ -6,7 +6,7 @@ const checkoutButton = document.getElementById("checkout-button");
 
 async function checkoutCart(jwt)
 {
-    const response = await fetch(`http://localhost:8080/orders/checkout`, {
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/orders/checkout`, {
         method : "POST",
         headers : {
             "Content-Type" : "application/json",
@@ -27,7 +27,7 @@ async function checkoutCart(jwt)
 
 async function getUserOrder(jwt, orderId)
 {
-    const response =  await fetch(`http://localhost:8080/orders/order?id=${orderId}`, {
+    const response =  await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/order?id=${orderId}`, {
         method : "GET",
         headers : {
             "Content-Type" : "application/json",

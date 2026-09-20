@@ -15,21 +15,21 @@ let size = 10;
 async function fetchProducts(query, page, size)
 {
     console.log(query);
-    const response = await fetch(`http://localhost:8080/products/search?query=${encodeURIComponent(query)}&page=${page}&size=${size}`);
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/products/search?query=${encodeURIComponent(query)}&page=${page}&size=${size}`);
     const data = await response.json();
     return data;
 }
 
 async function fetchProductsByType(productType)
 {
-    const response = await fetch(`http://localhost:8080/products/productType/${encodeURIComponent(productType)}`);
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/products/productType/${encodeURIComponent(productType)}`);
     const data = await response.json();
     return data;
 }
 
 async function fetchProduct(id)
 {
-    const response = await fetch(`http://localhost:8080/products/${id}`)
+    const response = await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/products/${id}`)
     const data = await response.json();
     return data
 }
