@@ -27,7 +27,7 @@ async function checkoutCart(jwt)
 
 async function getUserOrder(jwt, orderId)
 {
-    const response =  await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/order?id=${orderId}`, {
+    const response =  await fetch(`https://ecommerce-full-stack-5pvu.onrender.com/orders/order?id=${orderId}`, {
         method : "GET",
         headers : {
             "Content-Type" : "application/json",
