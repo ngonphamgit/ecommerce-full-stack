@@ -14,12 +14,12 @@ public interface ProductRepository extends JpaRepository<Product, Long>
     @Query(value =
             "SELECT * " +
             "FROM products " +
-            "WHERE to_tsvector('english', name) @@ plainto_tsquery(:query) " +
+            "WHERE to_tsvector('english', name) @@ plainto_tsquery('english', :query) " +
             "ORDER BY ts_rank(to_tsvector('english', name), plainto_tsquery('english', :query)) DESC",
             countQuery =
             "SELECT count(*) " +
             "FROM products " +
-            "WHERE to_tsvector('english', name) @@ plainto_tsquery(:query)",
+            "WHERE to_tsvector('english', name) @@ plainto_tsquery('english', :query)",
             nativeQuery = true
     )
     Page<Product> searchByName(@Param("query") String name, Pageable page);
