@@ -32,19 +32,31 @@ function Header()
     return (
         <header>
             <div id="header-top-bar">
-                <button type="button" id="home-button" className="btn btn-primary header-button">Home</button>
+                <button type="button" id="home-button" className="btn btn-primary header-button" onClick={handleHomeClick}>
+                    Home
+                </button>
                 <h1 id="header-title">Clamp Commerce</h1>
                 <div id="header-top-right-buttons">
-                    {(!isLoggedIn) ?
+                    {(isLoggedIn) ?
                     (<>
-                    <button type="button" id="profile-button" className="btn btn-primary header-button">Profile</button>
-                    <button type="button" id="cart-button" className="btn btn-primary header-button">Cart</button>
-                    <button type="button" id="logout-button" className="btn btn-danger header-button">Log Out</button>
+                    <button type="button" id="profile-button" className="btn btn-primary header-button" onClick={handleProfileClick}>
+                        Profile
+                    </button>
+                    <button type="button" id="cart-button" className="btn btn-primary header-button" onClick={handleCartClick}>
+                        Cart
+                    </button>
+                    <button type="button" id="logout-button" className="btn btn-danger header-button" onClick={handleLogoutClick}>
+                        Log Out
+                    </button>
                     </>)
                     :
                     (<>
-                    <button type="button" id="signup-button" className="btn btn-success header-button">Sign Up</button>
-                    <button type="button" id="login-button" className="btn btn-primary header-button">Log In</button>
+                    <button type="button" id="signup-button" className="btn btn-success header-button" onClick={handleSignupClick}>
+                        Sign Up
+                    </button>
+                    <button type="button" id="login-button" className="btn btn-primary header-button" onClick={handleLoginClick}>
+                        Log In
+                    </button>
                     </>)
                     }
                     

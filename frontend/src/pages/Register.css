@@ -1,0 +1,41 @@
+body.login-page {
+    background-color: rgb(180, 166, 255);
+}
+
+#auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#auth-box {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    margin-top: -100px;
+    border-radius: 12px;
+}
+
+.auth-field {
+    align-self: center;
+    width: 80%;
+    margin-bottom: 12px;
+}
+
+.form-label {
+    margin-bottom: 2px;
+}
+
+#username-label {
+    margin-top: 24px;
+}
+
+#register-button {
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    align-self: center;
+}
