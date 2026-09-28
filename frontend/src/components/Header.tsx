@@ -51,10 +51,10 @@ function Header()
                     </>)
                     :
                     (<>
-                    <button type="button" id="signup-button" className="btn btn-success header-button" onClick={handleSignupClick}>
+                    <button type="button" id="header-signup-button" className="btn btn-success header-button" onClick={handleSignupClick}>
                         Sign Up
                     </button>
-                    <button type="button" id="login-button" className="btn btn-primary header-button" onClick={handleLoginClick}>
+                    <button type="button" id="header-login-button" className="btn btn-primary header-button" onClick={handleLoginClick}>
                         Log In
                     </button>
                     </>)

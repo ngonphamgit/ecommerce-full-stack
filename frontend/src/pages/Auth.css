@@ -1,4 +1,5 @@
-body.login-page {
+body.login-page,
+body.register-page {
     background-color: rgb(180, 166, 255);
 }
 
@@ -33,7 +34,8 @@ body.login-page {
     margin-top: 24px;
 }
 
-#register-button {
+#register-button,
+#login-button {
     width: 80%;
     margin-top: 30px;
     margin-bottom: 30px;

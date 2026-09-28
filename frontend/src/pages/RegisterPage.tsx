@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import './Register.css'
+import './Auth.css'
 
 function RegisterPage()
 {
     useEffect(() => {
-        document.body.classList.add("login-page");
+        document.body.classList.add("register-page");
 
         return () => {
-            document.body.classList.remove("login-page");
+            document.body.classList.remove("register-page");
         }
     }, [])
 
