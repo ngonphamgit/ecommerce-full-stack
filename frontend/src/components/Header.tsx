@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router";
 import "./Header.css"
 
 function Header()
 {
     const token = localStorage.getItem("jwt");
     const isLoggedIn = token !== null;
+    const navigate = useNavigate();
 
     const handleHomeClick = () => {
-        
+        navigate("/");
     }
 
     const handleProfileClick = () => {
@@ -22,11 +24,11 @@ function Header()
     }
 
     const handleSignupClick = () => {
-
+        navigate("/register");
     }
 
     const handleLoginClick = () => {
-
+        navigate("/login");
     }
 
     return (
